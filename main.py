@@ -118,7 +118,6 @@ def quit_game():
         if event.type == pygame.QUIT:
             with open('score.dat', 'wb') as file:
                 pickle.dump(high_score, file)
-            print('High score at the end: ' + str(high_score))
             pygame.quit()
             exit()
 
@@ -185,8 +184,6 @@ def main():
 
                 if user_input[pygame.K_r]:
                     high_score = update_score(score, high_score)
-                    print(score)
-                    print(high_score)
                     score = 0
                     break
 
@@ -207,8 +204,6 @@ def main():
 def update_score(score, high_score):
     if score > high_score:
         high_score = score
-        print(high_score)
-        print(score)
     return high_score
 
 # Menu
@@ -218,13 +213,12 @@ def menu():
     icon = pygame.image.load('imgs/icon.png')
     pygame.display.set_icon(icon)
 
-    high_scoreLabel = font.render("Highscore: ", 1, pygame.Color(255, 255, 255))
-    high_scoreNumber = font.render(str(high_score), 1, pygame.Color(255, 255, 255))
-
 
     while game_stopped:
         quit_game()
 
+        high_scoreLabel = font.render("Highscore: ", 1, pygame.Color(255, 255, 255))
+        high_scoreNumber = font.render(str(high_score), 1, pygame.Color(255, 255, 255))
         # Draw Menu
         window.fill((0, 0, 0))
         window.blit(skyline_image, (0, 0))

@@ -25,6 +25,11 @@ DerivedData/
 ## Obj-C/Swift specific
 *.hmap
 
+## My own addition
+.idea/
+__pycache__
+score.dat
+
 ## App packaging
 *.ipa
 *.dSYM.zip
